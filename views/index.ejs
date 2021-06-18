@@ -44,13 +44,14 @@
   <script>
     let chatList = document.getElementById('chat');
     let inputForm = document.getElementById('input-form');
-    
+
     //여기에 Socket.IO 코드 작성
     
     inputForm.onsubmit = (e) => {
       e.preventDefault();
       let input = document.getElementById('input');
       let inputValue = input.value;
+      console.log(`입력값: ${inputValue}`);
       input.value = "";
 
       //여기에 Socket.IO 코드 작성
