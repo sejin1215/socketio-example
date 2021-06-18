@@ -1,6 +1,10 @@
 let express = require('express');
 let app = express();
 
+//Socket.IO는 http 모듈을 사용하기 때문에 Express 서버 객체를 http에 전달해 서버 생성
+let http = require('http');
+let server = http.createServer(app);
+
 //public 폴더 내에 있는 css와 js에 접근할 수 있도록 static 미들웨어 설정
 app.use(express.static('public'));
 
@@ -14,6 +18,6 @@ app.get('/', (req, res) => {
 });
 
 //localhost에서 3000번 포트로 서버 오픈
-app.listen(3000, () => {
+server.listen(3000, () => {
   console.log('서버 열림!');
 });
