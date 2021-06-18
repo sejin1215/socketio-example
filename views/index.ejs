@@ -6,6 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <script src="/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      width: 100%;
+      height: 100%;
+    }
+    .container {
+      width: 100%;
+      height: 100%;
+    }
+    #input {
+      position: relative;
+      bottom: 0;
+    }
+  </style>
   <title>Socket.IO 채팅</title>
 </head>
 <body>
@@ -19,11 +33,30 @@
         <p class="mb-1">${message}</p>
       </li>
     </ul>
+
+    <form id="input-form">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="input" placeholder="전송할 메시지">
+        <button class="btn btn-outline-primary" type="submit">전송</button>
+      </div>
+    </form>
   </div>
   <script>
     let chatList = document.getElementById('chat');
-
+    let inputForm = document.getElementById('input-form');
+    
     //여기에 Socket.IO 코드 작성
+    
+    inputForm.onsubmit = (e) => {
+      e.preventDefault();
+      let input = document.getElementById('input');
+      let inputValue = input.value;
+      input.value = "";
+
+      //여기에 Socket.IO 코드 작성
+    }
+
+    
   </script>
 </body>
 </html>
